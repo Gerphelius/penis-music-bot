@@ -52,9 +52,7 @@ client.on(Events.InteractionCreate, async (interaction: Interaction) => {
 
       await entersState(connection, VoiceConnectionStatus.Ready, 20_000);
 
-      const player = createPlayer(interaction.options.getString('url')!, connection);
-
-      connection.subscribe(player);
+      createPlayer(interaction.options.getString('url')!, connection);
 
       return await interaction.reply(`Audio is playing...`);
     } catch (error) {
